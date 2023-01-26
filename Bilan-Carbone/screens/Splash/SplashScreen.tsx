@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Image } from "react-native";
-// import LOGO from "../../assets/carbon-logo.png";
+import { View, StyleSheet, Text } from "react-native";
 
 export default function SplashScreen({ navigation }: { navigation: any }) {
   const [timePassed, setTimePassed] = useState(false);
@@ -10,7 +9,11 @@ export default function SplashScreen({ navigation }: { navigation: any }) {
   }, 3000);
 
   if (!timePassed) {
-    return <View style={styles.splash}>{/* <Image source={LOGO} /> */}</View>;
+    return (
+      <View style={styles.splash}>
+        <Text>LOGO</Text>
+      </View>
+    );
   }
   // navigation.navigate("Onboarding");
   // navigation.navigate("Register");

@@ -4,7 +4,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function LandingScreen({ navigation }: { navigation: any }) {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#0F683E" }}>
+    <SafeAreaView
+      style={{ flex: 1, justifyContent: "center", backgroundColor: "#0F683E" }}
+    >
       <TouchableOpacity
         style={styles.button}
         activeOpacity={0.5}
