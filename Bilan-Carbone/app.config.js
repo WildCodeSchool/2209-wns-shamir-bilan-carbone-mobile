@@ -1,4 +1,6 @@
-{
+
+
+export default {
   "expo": {
     "name": "Bilan-Carbone",
     "slug": "Bilan-Carbone",
@@ -8,8 +10,8 @@
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#22bd4b"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
