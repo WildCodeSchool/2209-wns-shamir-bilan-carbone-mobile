@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
 import AppIntroSlider from "react-native-app-intro-slider";
-import { useFonts } from "expo-font";
+import * as Font from "expo-font";
 import LandingScreen from "../Landing/LandingScreen";
 
 const slides = [
@@ -30,9 +30,15 @@ const slides = [
 
 export default function OnboardingScreen() {
   const [showRealApp, setShowRealApp] = useState(false);
-  const [fontsLoaded] = useFonts({
-    "Roboto-Condensed": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
-  });
+
+  const fetchFonts = async () =>
+    await Font.loadAsync({
+      "Roboto-Condensed": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
+    });
+
+  function cacheFonts(fonts: any[]) {
+    return fonts.map((font: any) => Font.loadAsync(font));
+  }
 
   const renderItem = ({
     item,
