@@ -2,7 +2,7 @@ import { Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function LandingScreen({ navigation }: { navigation: any }) {
+export default function LandingScreen({ navigation }: any) {
   return (
     <SafeAreaView
       style={{ flex: 1, justifyContent: "center", backgroundColor: "#0F683E" }}
@@ -20,7 +20,7 @@ export default function LandingScreen({ navigation }: { navigation: any }) {
         style={styles.button}
         activeOpacity={0.5}
         onPress={() => {
-          navigation.navigate("Onboarding");
+          navigation.navigate("Register");
         }}
       >
         <Text style={styles.buttonTextStyle}>M'inscrire</Text>

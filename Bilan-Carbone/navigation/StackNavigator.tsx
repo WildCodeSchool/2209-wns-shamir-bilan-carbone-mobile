@@ -12,8 +12,8 @@ export const StackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Landing"
-        component={LandingScreen}
+        name="Onboarding"
+        component={OnboardingScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -21,7 +21,7 @@ export const StackNavigator = () => {
         component={TabNavigator}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+      <Stack.Screen name="Landing" component={LandingScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Survey" component={SurveyScreen} />

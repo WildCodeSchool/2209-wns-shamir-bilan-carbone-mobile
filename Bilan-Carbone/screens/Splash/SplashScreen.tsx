@@ -1,24 +1,14 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
+
+let logo = require("../../assets/logo-white-just-reduce.png");
 
 export default function SplashScreen({ navigation }: { navigation: any }) {
-  const [timePassed, setTimePassed] = useState(false);
-
-  setTimeout(function () {
-    setTimePassed(true);
-  }, 3000);
-
-  if (!timePassed) {
-    return (
-      <View style={styles.splash}>
-        <Text>LOGO</Text>
-      </View>
-    );
-  }
-  // navigation.navigate("Onboarding");
-  // navigation.navigate("Register");
-  navigation.navigate("Landing");
-  return null;
+  return (
+    <View style={styles.splash}>
+      <Image source={logo} />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

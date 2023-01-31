@@ -9,9 +9,9 @@ export default {
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/carbon-logo.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#22bd4b"
+      "image": "./assets/logo-white-just-reduce.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#9ae19d"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
