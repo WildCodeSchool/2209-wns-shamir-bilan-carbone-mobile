@@ -1,14 +1,8 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  Button,
-  Image,
-} from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { useFonts } from "expo-font";
+import LandingScreen from "../Landing/LandingScreen";
 
 const slides = [
   {
@@ -65,28 +59,9 @@ export default function OnboardingScreen() {
   return (
     <>
       {showRealApp ? (
-        <SafeAreaView style={styles.container}>
-          <View style={styles.container}>
-            <Text style={styles.titleStyle}>
-              React Native App Intro Slider using AppIntroSlider
-            </Text>
-            <Text style={styles.paragraphStyle}>
-              This will be your screen when you click Skip from any slide or
-              Done button at last
-            </Text>
-            <Button
-              title="Show Intro Slider again"
-              onPress={() => setShowRealApp(false)}
-            />
-          </View>
-        </SafeAreaView>
+        <LandingScreen />
       ) : (
-        <AppIntroSlider
-          data={slides}
-          renderItem={renderItem}
-          onDone={onDone}
-          showSkipButton={true}
-        />
+        <AppIntroSlider data={slides} renderItem={renderItem} onDone={onDone} />
       )}
     </>
   );
