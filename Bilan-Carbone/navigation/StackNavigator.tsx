@@ -4,13 +4,14 @@ import RegisterScreen from "../screens/Auth/RegisterScreen";
 import LandingScreen from "../screens/Landing/LandingScreen";
 import OnboardingScreen from "../screens/Onboarding/OnboardingScreen";
 import SurveyScreen from "../screens/Survey/SurveyScreen";
+import SurveyFoodScreen from "../screens/Survey/SurveyFoodScreen";
 import { TabNavigator } from "./TabNavigator";
 
 const Stack = createNativeStackNavigator();
 
 export const StackNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="SurveyFood">
       <Stack.Screen
         name="Landing"
         component={LandingScreen}
@@ -25,6 +26,7 @@ export const StackNavigator = () => {
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Survey" component={SurveyScreen} />
+      <Stack.Screen name="SurveyFood" component={SurveyFoodScreen} />
     </Stack.Navigator>
   );
 };
