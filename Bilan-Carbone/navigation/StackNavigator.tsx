@@ -17,7 +17,7 @@ export const StackNavigator = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="HomeTab"
+        name="Home"
         component={TabNavigator}
         options={{ headerShown: false }}
       />

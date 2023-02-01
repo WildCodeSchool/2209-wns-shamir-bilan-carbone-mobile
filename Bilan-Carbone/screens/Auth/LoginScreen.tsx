@@ -39,7 +39,7 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
-          onPress={navigation.navigate("HomeScreen")}
+          onPress={navigation.navigate("TabNavigator")}
         >
           <Text style={styles.buttonTextStyle}>Se connecter</Text>
         </TouchableOpacity>
