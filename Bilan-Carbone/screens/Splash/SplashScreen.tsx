@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Image } from "react-native";
 
-let logo = require("../../assets/logo-white-just-reduce.png");
+let logo = require("../../assets/images/logo-white-just-reduce.png");
 
 export default function SplashScreen({ navigation }: { navigation: any }) {
   return (

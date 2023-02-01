@@ -3,29 +3,27 @@ import React, { useState } from "react";
 import AppIntroSlider from "react-native-app-intro-slider";
 import * as Font from "expo-font";
 import LandingScreen from "../Landing/LandingScreen";
-import HomeScreen from "../Home/HomeScreen";
-import { TabNavigator } from "../../navigation/TabNavigator";
 
 const slides = [
   {
     key: "one",
     title: "Mesurer",
     text: "Avoir un suivi régulier de son empreinte carbone, c'est possible !",
-    image: require("../../assets/onboarding-slide-one.png"),
+    image: require("../../assets/images/onboarding-slide-one.png"),
     backgroundColor: "#59b2ab",
   },
   {
     key: "two",
     title: "Analyser",
     text: "Nous vous aidons à comprendre l'impact de vos habitudes de consommation.",
-    image: require("../../assets/onboarding-slide-two.png"),
+    image: require("../../assets/images/onboarding-slide-two.png"),
     backgroundColor: "#febe29",
   },
   {
     key: "three",
     title: "Agir",
     text: "Grâce à nos conseils, réduire votre empreinte carbone n'aura jamais été aussi simple !",
-    image: require("../../assets/onboarding-slide-three.png"),
+    image: require("../../assets/images/onboarding-slide-three.png"),
     backgroundColor: "#22bcb5",
   },
 ];

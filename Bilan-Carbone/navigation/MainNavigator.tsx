@@ -2,9 +2,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useState, useEffect } from "react";
 import SplashScreen from "../screens/Splash/SplashScreen";
+import { RootStackParamList } from "./routes";
 import { StackNavigator } from "./StackNavigator";
 
-const MainStack = createNativeStackNavigator();
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 export const MainNavigator = () => {
   const [showSplash, setShowSplash] = useState<Boolean>(true);
@@ -16,18 +17,18 @@ export const MainNavigator = () => {
   });
 
   if (showSplash) {
-    return <SplashScreen />;
+    return <SplashScreen navigation={undefined} />;
   }
 
   return (
     <NavigationContainer>
-      <MainStack.Navigator>
-        <MainStack.Screen
+      <RootStack.Navigator>
+        <RootStack.Screen
           name="StackNavigator"
           component={StackNavigator}
           options={{ headerShown: false }}
         />
-      </MainStack.Navigator>
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 };
