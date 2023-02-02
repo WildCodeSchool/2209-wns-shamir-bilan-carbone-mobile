@@ -4,6 +4,7 @@ import AppIntroSlider from "react-native-app-intro-slider";
 import * as Font from "expo-font";
 import LandingScreen from "../Landing/LandingScreen";
 import { TabNavigator } from "../../navigation/TabNavigator";
+import SurveyFoodScreen from "../Survey/SurveyFoodScreen";
 
 const slides = [
   {

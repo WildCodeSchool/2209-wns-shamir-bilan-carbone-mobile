@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 
 export const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="SurveyFood">
+    <Stack.Navigator>
       <Stack.Screen
         name="Onboarding"
         component={OnboardingScreen}

@@ -7,7 +7,7 @@ import { CARBON_QUERY } from "../../gql/Query";
 import IFood from "../../interface/IFood";
 import ProductListComponent from "../../components/Food/ProductListComponent";
 
-export default function SurveyFoodSearchScreen({ navigation }) {
+export default function SurveyFoodSearchScreen({ navigation }: any) {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const { data, loading, error } = useQuery(CARBON_QUERY, {
@@ -60,7 +60,7 @@ export default function SurveyFoodSearchScreen({ navigation }) {
           marginVertical: 5,
         }}
         titleStyle={{ fontWeight: "bold" }}
-        onPress={() => navigation.navigate("Survey")}
+        onPress={() => navigation.navigate("TabNavigator")}
       />
     </View>
   );

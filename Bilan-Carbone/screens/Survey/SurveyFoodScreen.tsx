@@ -8,14 +8,14 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default function SurveyFoodScreen({ navigation }) {
+export default function SurveyFoodScreen({ navigation }: any) {
   const [fruits, setFruits] = useState(false);
   const [vegs, setVegs] = useState(false);
   const [meet, setMeet] = useState(false);
   const [snacks, setSnacks] = useState(false);
   const [dessert, setDessert] = useState(false);
 
-  const food = [];
+  const food: any = [];
 
   const click = () => {
     if (fruits === true) {
@@ -41,7 +41,7 @@ export default function SurveyFoodScreen({ navigation }) {
     <View style={styles.container}>
       <Header />
       <ImageBackground
-        source={require("../../assets/light-green-square-bg.png")}
+        source={require("../../assets/images/light-green-square-bg.png")}
         style={{ flex: 1, width: "100%" }}
       >
         <View style={styles.formWrap}>
