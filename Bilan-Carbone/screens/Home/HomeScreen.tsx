@@ -2,12 +2,12 @@ import { View, StyleSheet, FlatList } from "react-native";
 import React from "react";
 import { DonutChart } from "react-native-circular-chart";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TabNavigator } from "../../navigation/TabNavigator";
+import { colors } from "../../assets/themes.json";
 
 const datas = [
-  { name: "Voiture", value: 10, color: "#faf3e0" },
-  { name: "Repas", value: 20, color: "#eabf9f" },
-  { name: "Numérique", value: 30, color: "#28527a" },
+  { name: "Voiture", value: 10, color: colors.primary },
+  { name: "Repas", value: 20, color: colors.secondary },
+  { name: "Numérique", value: 30, color: colors.brown },
 ];
 
 export default function HomeScreen() {

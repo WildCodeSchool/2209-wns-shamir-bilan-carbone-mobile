@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import AppIntroSlider from "react-native-app-intro-slider";
 import * as Font from "expo-font";
 import LandingScreen from "../Landing/LandingScreen";
+import { TabNavigator } from "../../navigation/TabNavigator";
 
 const slides = [
   {
@@ -65,7 +66,7 @@ export default function OnboardingScreen() {
   return (
     <>
       {showRealApp ? (
-        <LandingScreen />
+        <TabNavigator />
       ) : (
         <AppIntroSlider data={slides} renderItem={renderItem} onDone={onDone} />
       )}
