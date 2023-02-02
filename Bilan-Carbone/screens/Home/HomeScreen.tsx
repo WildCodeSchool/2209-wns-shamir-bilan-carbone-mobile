@@ -1,4 +1,5 @@
 import { View, StyleSheet, FlatList } from "react-native";
+import { Button } from "@rneui/themed";
 import React from "react";
 import { DonutChart } from "react-native-circular-chart";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,7 +11,7 @@ const datas = [
   { name: "Numérique", value: 30, color: colors.brown },
 ];
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }: any) {
   return (
     <>
       <SafeAreaView>
@@ -25,6 +26,22 @@ export default function HomeScreen() {
             startAngle={0}
             endAngle={360}
             animationType="slide"
+          />
+          <Button
+            title="Next"
+            buttonStyle={{
+              backgroundColor: "#a4031f",
+              borderWidth: 0,
+              borderColor: "white",
+              borderRadius: 50,
+            }}
+            containerStyle={{
+              width: 200,
+              marginHorizontal: 5,
+              marginVertical: 5,
+            }}
+            titleStyle={{ fontWeight: "bold" }}
+            onPress={() => navigation.navigate("SurveyFood")}
           />
         </View>
       </SafeAreaView>
