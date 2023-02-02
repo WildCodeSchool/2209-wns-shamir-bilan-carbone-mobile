@@ -8,7 +8,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default function SurveyFoodScreen() {
+export default function SurveyFoodScreen({ navigation }) {
   const [fruits, setFruits] = useState(false);
   const [vegs, setVegs] = useState(false);
   const [meet, setMeet] = useState(false);
@@ -22,10 +22,10 @@ export default function SurveyFoodScreen() {
       food.push("fruits");
     }
     if (vegs === true) {
-      food.push("Snacks");
+      food.push("vegetables");
     }
     if (meet === true) {
-      food.push("meet");
+      food.push("meat");
     }
     if (snacks === true) {
       food.push("snacks");
@@ -34,7 +34,7 @@ export default function SurveyFoodScreen() {
       food.push("dessert");
     }
 
-    Alert.alert("Food", "Hello , your food choice is " + food.toString());
+    Alert.alert("Food", "Hello , your food choice is " + food.toString() + " ");
   };
 
   return (
@@ -194,6 +194,23 @@ export default function SurveyFoodScreen() {
             }}
             titleStyle={{ fontWeight: "bold" }}
             onPress={click}
+          />
+
+          <Button
+            title="Next"
+            buttonStyle={{
+              backgroundColor: "#a4031f",
+              borderWidth: 0,
+              borderColor: "white",
+              borderRadius: 50,
+            }}
+            containerStyle={{
+              width: 200,
+              marginHorizontal: 5,
+              marginVertical: 5,
+            }}
+            titleStyle={{ fontWeight: "bold" }}
+            onPress={() => navigation.navigate("SurveyFoodSearch")}
           />
         </View>
       </ImageBackground>
