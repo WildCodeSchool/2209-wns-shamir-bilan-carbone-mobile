@@ -2,9 +2,9 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
 import AppIntroSlider from "react-native-app-intro-slider";
 import * as Font from "expo-font";
-import LandingScreen from "../Landing/LandingScreen";
 import { TabNavigator } from "../../navigation/TabNavigator";
-import SurveyFoodScreen from "../Survey/SurveyFoodScreen";
+import { useFonts } from "expo-font";
+import SplashScreen from "../Splash/SplashScreen";
 
 const slides = [
   {
@@ -33,13 +33,16 @@ const slides = [
 export default function OnboardingScreen() {
   const [showRealApp, setShowRealApp] = useState(false);
 
-  const fetchFonts = async () =>
-    await Font.loadAsync({
-      "Roboto-Condensed": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
-    });
+  Font.loadAsync({
+    "Roboto-Condensed": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
+  });
 
-  function cacheFonts(fonts: any[]) {
-    return fonts.map((font: any) => Font.loadAsync(font));
+  let [fontsLoaded] = useFonts({
+    "open-sans": require("../../assets/fonts/RobotoCondensed-Regular.ttf"),
+    "open-sans-bold": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
+  });
+  if (!fontsLoaded) {
+    return <SplashScreen navigation={undefined} />;
   }
 
   const renderItem = ({
