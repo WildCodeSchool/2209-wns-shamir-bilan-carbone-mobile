@@ -60,7 +60,7 @@ export default function SurveyFoodSearchScreen({ navigation }: any) {
           marginVertical: 5,
         }}
         titleStyle={{ fontWeight: "bold" }}
-        onPress={() => navigation.navigate("TabNavigator")}
+        onPress={() => navigation.navigate("Survey")}
       />
     </View>
   );
