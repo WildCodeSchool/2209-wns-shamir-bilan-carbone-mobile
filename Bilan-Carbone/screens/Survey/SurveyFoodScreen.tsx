@@ -7,6 +7,9 @@ import { CheckBox } from "react-native-elements";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import * as Font from "expo-font";
+import { useFonts } from "expo-font";
+import SplashScreen from "../Splash/SplashScreen";
 
 export default function SurveyFoodScreen({ navigation }: any) {
   const [fruits, setFruits] = useState(false);
@@ -14,6 +17,18 @@ export default function SurveyFoodScreen({ navigation }: any) {
   const [meet, setMeet] = useState(false);
   const [snacks, setSnacks] = useState(false);
   const [dessert, setDessert] = useState(false);
+
+  Font.loadAsync({
+    "Roboto-Condensed": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
+  });
+
+  let [fontsLoaded] = useFonts({
+    "open-sans": require("../../assets/fonts/RobotoCondensed-Regular.ttf"),
+    "open-sans-bold": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
+  });
+  if (!fontsLoaded) {
+    return <SplashScreen navigation={undefined} />;
+  }
 
   const food: any = [];
 
@@ -57,7 +72,7 @@ export default function SurveyFoodScreen({ navigation }: any) {
               textStyle={{
                 color: "#073B3A",
                 fontSize: 18,
-                fontFamily: "monospace",
+                fontFamily: "Roboto-Condensed",
                 // textTransform: "uppercase",
               }}
               checked={fruits}
@@ -83,7 +98,7 @@ export default function SurveyFoodScreen({ navigation }: any) {
               textStyle={{
                 color: "#073B3A",
                 fontSize: 18,
-                fontFamily: "monospace",
+                fontFamily: "Roboto-Condensed",
                 // textTransform: "uppercase",
               }}
               checked={vegs}
@@ -109,7 +124,7 @@ export default function SurveyFoodScreen({ navigation }: any) {
               textStyle={{
                 color: "#073B3A",
                 fontSize: 18,
-                fontFamily: "monospace",
+                fontFamily: "Roboto-Condensed",
                 // textTransform: "uppercase",
               }}
               checked={meet}
@@ -135,7 +150,7 @@ export default function SurveyFoodScreen({ navigation }: any) {
               textStyle={{
                 color: "#073B3A",
                 fontSize: 18,
-                fontFamily: "monospace",
+                fontFamily: "Roboto-Condensed",
                 // textTransform: "uppercase",
               }}
               checked={snacks}
@@ -162,7 +177,7 @@ export default function SurveyFoodScreen({ navigation }: any) {
                 color: "#073B3A",
                 fontSize: 18,
                 // textTransform: "uppercase",
-                fontFamily: "monospace",
+                fontFamily: "Roboto-Condensed",
               }}
               checked={dessert}
               checkedColor="#073B3A"
@@ -231,7 +246,7 @@ const styles = StyleSheet.create({
   title: {
     color: "#073b3a",
     fontSize: 20,
-    fontFamily: "monospace",
+    fontFamily: "Roboto-Condensed",
     fontWeight: "bold",
     paddingTop: 30,
     paddingBottom: 20,
