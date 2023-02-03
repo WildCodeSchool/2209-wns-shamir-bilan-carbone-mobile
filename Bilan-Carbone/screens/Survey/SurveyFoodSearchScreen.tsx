@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client";
 import { CARBON_QUERY } from "../../gql/Query";
 import IFood from "../../interface/IFood";
 import ProductListComponent from "../../components/Food/ProductListComponent";
+import { colors } from "../../assets/themes.json";
 
 export default function SurveyFoodSearchScreen({ navigation }: any) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -47,9 +48,9 @@ export default function SurveyFoodSearchScreen({ navigation }: any) {
       <ProductListComponent filteredData={filteredData} />
 
       <Button
-        title="Next"
+        title="Suivant"
         buttonStyle={{
-          backgroundColor: "#a4031f",
+          backgroundColor: colors.brown,
           borderWidth: 0,
           borderColor: "white",
           borderRadius: 50,

@@ -10,6 +10,9 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import * as Font from "expo-font";
 import { useFonts } from "expo-font";
 import SplashScreen from "../Splash/SplashScreen";
+import { colors } from "../../assets/themes.json";
+import { color } from "@rneui/base";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SurveyFoodScreen({ navigation }: any) {
   const [fruits, setFruits] = useState(false);
@@ -195,9 +198,9 @@ export default function SurveyFoodScreen({ navigation }: any) {
             />
           </View>
           <Button
-            title="Save"
+            title="Conserver la sélection"
             buttonStyle={{
-              backgroundColor: "#a4031f",
+              backgroundColor: colors.brown,
               borderWidth: 0,
               borderColor: "white",
               borderRadius: 50,
@@ -212,9 +215,9 @@ export default function SurveyFoodScreen({ navigation }: any) {
           />
 
           <Button
-            title="Next"
+            title="Suivant"
             buttonStyle={{
-              backgroundColor: "#a4031f",
+              backgroundColor: colors.primary,
               borderWidth: 0,
               borderColor: "white",
               borderRadius: 50,
