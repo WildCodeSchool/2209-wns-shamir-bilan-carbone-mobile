@@ -16,7 +16,7 @@ export default function Header() {
         />
       </View>
 
-      <Text style={styles.title}>My weekly consumption</Text>
+      <Text style={styles.title}>Hebdomadaire</Text>
     </View>
   );
 }

@@ -28,9 +28,9 @@ export default function HomeScreen({ navigation }: any) {
             animationType="slide"
           />
           <Button
-            title="Next"
+            title="Suivant"
             buttonStyle={{
-              backgroundColor: "#a4031f",
+              backgroundColor: "#9ae19d",
               borderWidth: 0,
               borderColor: "white",
               borderRadius: 50,
