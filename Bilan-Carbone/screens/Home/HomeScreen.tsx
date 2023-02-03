@@ -28,9 +28,9 @@ export default function HomeScreen({ navigation }: any) {
             animationType="slide"
           />
           <Button
-            title="Définir vos habitudes"
+            title="Suivant"
             buttonStyle={{
-              backgroundColor: colors.brown,
+              backgroundColor: "#9ae19d",
               borderWidth: 0,
               borderColor: "white",
               borderRadius: 50,

@@ -1,11 +1,25 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import IFood from "../../interface/IFood";
+import { Button } from "@rneui/themed";
 
-const ProductComponent = ({ carbonItem }) => {
+const ProductComponent = ({
+  carbonItem,
+  handleAddToChoiceList,
+}: {
+  carbonItem: IFood;
+  handleAddToChoiceList: () => void;
+}) => {
   return (
     <View>
-      <Text key={carbonItem._i}>{carbonItem.name}</Text>
+      <TouchableOpacity onPress={() => handleAddToChoiceList(carbonItem)}>
+        <Text
+          style={{ paddingTop: 4, fontSize: 18, color: "#808080" }}
+          key={carbonItem._i}
+        >
+          {carbonItem.name}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

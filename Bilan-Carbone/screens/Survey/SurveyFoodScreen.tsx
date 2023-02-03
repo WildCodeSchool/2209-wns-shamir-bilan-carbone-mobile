@@ -7,6 +7,7 @@ import { CheckBox } from "react-native-elements";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import ICarbon from "../../interface/ICarbon";
 import * as Font from "expo-font";
 import { useFonts } from "expo-font";
 import SplashScreen from "../Splash/SplashScreen";
@@ -15,12 +16,16 @@ import { color } from "@rneui/base";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SurveyFoodScreen({ navigation }: any) {
-  const [fruits, setFruits] = useState(false);
-  const [vegs, setVegs] = useState(false);
-  const [meet, setMeet] = useState(false);
-  const [snacks, setSnacks] = useState(false);
-  const [dessert, setDessert] = useState(false);
+  const initialCategories: ICarbon[] = [
+    { category: "Fruits", checked: false },
+    { category: "Légumes", checked: false },
+    { category: "Viande", checked: false },
+    { category: "Snacks", checked: false },
+    { category: "Cheese", checked: false },
+    { category: "Dessert", checked: false },
+  ];
 
+  const [categories, setCategories] = useState(initialCategories);
   Font.loadAsync({
     "Roboto-Condensed": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
   });
@@ -35,26 +40,18 @@ export default function SurveyFoodScreen({ navigation }: any) {
 
   const food: any = [];
 
-  const click = () => {
-    if (fruits === true) {
-      food.push("fruits");
-    }
-    if (vegs === true) {
-      food.push("vegetables");
-    }
-    if (meet === true) {
-      food.push("meat");
-    }
-    if (snacks === true) {
-      food.push("snacks");
-    }
-    if (dessert === true) {
-      food.push("dessert");
-    }
-
-    Alert.alert("Food", "Hello , your food choice is " + food.toString() + " ");
+  const handleCheckBox = (index: number) => {
+    setCategories((prevState) => {
+      prevState[index].checked = !prevState[index].checked;
+      return [...prevState];
+    });
   };
 
+  const selectedCategories = categories
+    .filter((category) => category.checked)
+    .map((category) => category.category);
+
+  console.log(selectedCategories);
   return (
     <View style={styles.container}>
       <Header />
@@ -63,156 +60,39 @@ export default function SurveyFoodScreen({ navigation }: any) {
         style={{ flex: 1, width: "100%" }}
       >
         <View style={styles.formWrap}>
-          <Text style={styles.title}>My choice of meals: </Text>
+          <Text style={styles.title}>Mes repas: </Text>
 
-          <View style={styles.cbWrapper}>
-            <MaterialCommunityIcons
-              name="fruit-pineapple"
-              style={styles.foodIcon}
-            />
-            <CheckBox
-              title="Fruits"
-              textStyle={{
-                color: "#073B3A",
-                fontSize: 18,
-                fontFamily: "Roboto-Condensed",
-                // textTransform: "uppercase",
-              }}
-              checked={fruits}
-              checkedColor="#073B3A"
-              onPress={() => setFruits(!fruits)}
-              checkedIcon="dot-circle-o"
-              uncheckedIcon="circle-o"
-              size={35}
-              containerStyle={{
-                width: "80%",
-                backgroundColor: "transparent",
-                borderColor: "transparent",
-                paddingTop: 0,
-                paddingBottom: 0,
-              }}
-            />
+          <View>
+            {categories.map((category, index) => (
+              <View key={category.category}>
+                <CheckBox
+                  title={category.category}
+                  checked={category.checked}
+                  textStyle={{
+                    color: "#073B3A",
+                    fontSize: 18,
+                    fontFamily: "Roboto",
+                  }}
+                  uncheckedColor="#073B3A"
+                  checkedColor="#073B3A"
+                  containerStyle={{
+                    width: "80%",
+                    backgroundColor: "transparent",
+                    borderColor: "transparent",
+                    paddingTop: 0,
+                    paddingBottom: 0,
+                  }}
+                  checkedIcon="dot-circle-o"
+                  uncheckedIcon="circle-o"
+                  size={35}
+                  onPress={() => handleCheckBox(index)}
+                />
+              </View>
+            ))}
           </View>
-
-          <View style={styles.cbWrapper}>
-            <FontAwesome5 name="carrot" style={styles.foodIcon} />
-            <CheckBox
-              title="Vegetables"
-              textStyle={{
-                color: "#073B3A",
-                fontSize: 18,
-                fontFamily: "Roboto-Condensed",
-                // textTransform: "uppercase",
-              }}
-              checked={vegs}
-              checkedColor="#073B3A"
-              onPress={() => setVegs(!vegs)}
-              checkedIcon="dot-circle-o"
-              uncheckedIcon="circle-o"
-              size={35}
-              containerStyle={{
-                width: "80%",
-                backgroundColor: "transparent",
-                borderColor: "transparent",
-                paddingTop: 0,
-                paddingBottom: 0,
-              }}
-            />
-          </View>
-
-          <View style={styles.cbWrapper}>
-            <MaterialCommunityIcons name="food-steak" style={styles.foodIcon} />
-            <CheckBox
-              title="Meat"
-              textStyle={{
-                color: "#073B3A",
-                fontSize: 18,
-                fontFamily: "Roboto-Condensed",
-                // textTransform: "uppercase",
-              }}
-              checked={meet}
-              checkedColor="#073B3A"
-              onPress={() => setMeet(!meet)}
-              checkedIcon="dot-circle-o"
-              uncheckedIcon="circle-o"
-              size={35}
-              containerStyle={{
-                width: "80%",
-                backgroundColor: "transparent",
-                borderColor: "transparent",
-                paddingTop: 0,
-                paddingBottom: 0,
-              }}
-            />
-          </View>
-
-          <View style={styles.cbWrapper}>
-            <Ionicons name="fast-food" style={styles.foodIcon} />
-            <CheckBox
-              title="Snacks"
-              textStyle={{
-                color: "#073B3A",
-                fontSize: 18,
-                fontFamily: "Roboto-Condensed",
-                // textTransform: "uppercase",
-              }}
-              checked={snacks}
-              checkedColor="#073B3A"
-              onPress={() => setSnacks(!snacks)}
-              checkedIcon="dot-circle-o"
-              uncheckedIcon="circle-o"
-              size={35}
-              containerStyle={{
-                width: "80%",
-                backgroundColor: "transparent",
-                borderColor: "transparent",
-                paddingTop: 0,
-                paddingBottom: 0,
-              }}
-            />
-          </View>
-
-          <View style={styles.cbWrapper}>
-            <MaterialCommunityIcons name="cupcake" style={styles.foodIcon} />
-            <CheckBox
-              title="Dessert"
-              textStyle={{
-                color: "#073B3A",
-                fontSize: 18,
-                // textTransform: "uppercase",
-                fontFamily: "Roboto-Condensed",
-              }}
-              checked={dessert}
-              checkedColor="#073B3A"
-              onPress={() => setDessert(!dessert)}
-              checkedIcon="dot-circle-o"
-              uncheckedIcon="circle-o"
-              size={35}
-              containerStyle={{
-                width: "80%",
-                backgroundColor: "transparent",
-                borderColor: "transparent",
-                paddingTop: 0,
-                paddingBottom: 0,
-              }}
-            />
-          </View>
-          <Button
-            title="Conserver la sélection"
-            buttonStyle={{
-              backgroundColor: colors.brown,
-              borderWidth: 0,
-              borderColor: "white",
-              borderRadius: 50,
-            }}
-            containerStyle={{
-              width: 200,
-              marginHorizontal: 5,
-              marginVertical: 5,
-            }}
-            titleStyle={{ fontWeight: "bold" }}
-            onPress={click}
-          />
+          <Text style={{ paddingTop: 10, fontFamily: "Roboto" }}>
+            Catégories sélectionnées: {selectedCategories.join(", ")}
+          </Text>
 
           <Button
             title="Suivant"
@@ -228,7 +108,9 @@ export default function SurveyFoodScreen({ navigation }: any) {
               marginVertical: 5,
             }}
             titleStyle={{ fontWeight: "bold" }}
-            onPress={() => navigation.navigate("SurveyFoodSearch")}
+            onPress={(selectedCategories) =>
+              navigation.navigate("SurveyFoodSearch")
+            }
           />
         </View>
       </ImageBackground>
