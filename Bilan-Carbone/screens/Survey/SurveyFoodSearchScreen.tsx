@@ -23,6 +23,7 @@ import CarbonItem from "../../components/Food/CarbonItem";
 import SurveyFoodScreen from "./SurveyFoodScreen";
 import Feather from "react-native-vector-icons/Feather";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { colors } from "../../assets/themes.json";
 
 export default function SurveyFoodSearchScreen({ navigation }: any) {
   const [searchTerm, setSearchTerm] = useState<string | null>("");

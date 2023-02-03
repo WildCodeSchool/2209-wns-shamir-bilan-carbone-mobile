@@ -13,13 +13,13 @@ export const TabNavigator = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === "Home") {
+          if (route.name === "Accueil") {
             iconName = focused
               ? "ios-information-circle"
               : "ios-information-circle-outline";
           } else if (route.name === "Infos") {
             iconName = focused ? "ios-list" : "ios-list-outline";
-          } else if (route.name === "Profile") {
+          } else if (route.name === "Profil") {
             iconName = focused ? "ios-person" : "ios-person-outline";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -28,9 +28,9 @@ export const TabNavigator = () => {
         tabBarInactiveTintColor: "#8a817c",
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Accueil" component={HomeScreen} />
       <Tab.Screen name="Infos" component={InfosScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Profil" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };

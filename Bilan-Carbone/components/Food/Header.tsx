@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
   title: {
     color: "#073b3a",
     fontSize: 26,
-    fontFamily: "monospace",
+    fontFamily: "Roboto-Condensed",
   },
 });

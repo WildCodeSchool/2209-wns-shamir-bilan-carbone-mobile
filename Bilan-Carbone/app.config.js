@@ -9,7 +9,7 @@ export default {
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo-white-just-reduce.png",
+      "image": "./assets/images/logo-white-just-reduce.png",
       "resizeMode": "contain",
       "backgroundColor": "#9ae19d"
     },
@@ -24,7 +24,7 @@ export default {
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },

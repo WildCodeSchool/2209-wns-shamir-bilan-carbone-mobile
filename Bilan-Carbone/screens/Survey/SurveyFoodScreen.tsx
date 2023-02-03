@@ -8,6 +8,12 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import ICarbon from "../../interface/ICarbon";
+import * as Font from "expo-font";
+import { useFonts } from "expo-font";
+import SplashScreen from "../Splash/SplashScreen";
+import { colors } from "../../assets/themes.json";
+import { color } from "@rneui/base";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SurveyFoodScreen({ navigation }: any) {
   const initialCategories: ICarbon[] = [
@@ -20,6 +26,19 @@ export default function SurveyFoodScreen({ navigation }: any) {
   ];
 
   const [categories, setCategories] = useState(initialCategories);
+  Font.loadAsync({
+    "Roboto-Condensed": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
+  });
+
+  let [fontsLoaded] = useFonts({
+    "open-sans": require("../../assets/fonts/RobotoCondensed-Regular.ttf"),
+    "open-sans-bold": require("../../assets/fonts/RobotoCondensed-Bold.ttf"),
+  });
+  if (!fontsLoaded) {
+    return <SplashScreen navigation={undefined} />;
+  }
+
+  const food: any = [];
 
   const handleCheckBox = (index: number) => {
     setCategories((prevState) => {
@@ -78,7 +97,7 @@ export default function SurveyFoodScreen({ navigation }: any) {
           <Button
             title="Suivant"
             buttonStyle={{
-              backgroundColor: "#a4031f",
+              backgroundColor: colors.primary,
               borderWidth: 0,
               borderColor: "white",
               borderRadius: 50,
@@ -112,7 +131,7 @@ const styles = StyleSheet.create({
   title: {
     color: "#073b3a",
     fontSize: 20,
-    fontFamily: "monospace",
+    fontFamily: "Roboto-Condensed",
     fontWeight: "bold",
     paddingTop: 30,
     paddingBottom: 20,
