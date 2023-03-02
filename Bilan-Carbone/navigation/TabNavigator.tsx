@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import HomeScreen from "../screens/Home/HomeScreen";
+import HomeBis from "../screens/Home/HomeBis";
 import InfosScreen from "../screens/Infos/InfosScreen";
 import ProfileScreen from "../screens/Profile/ProfileScreen";
 
@@ -13,7 +13,7 @@ export const TabNavigator = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === "Accueil") {
+          if (route.name === "Recettes") {
             iconName = focused
               ? "ios-information-circle"
               : "ios-information-circle-outline";
@@ -28,7 +28,7 @@ export const TabNavigator = () => {
         tabBarInactiveTintColor: "#8a817c",
       })}
     >
-      <Tab.Screen name="Accueil" component={HomeScreen} />
+      <Tab.Screen name="Recettes" component={HomeBis} />
       <Tab.Screen name="Infos" component={InfosScreen} />
       <Tab.Screen name="Profil" component={ProfileScreen} />
     </Tab.Navigator>

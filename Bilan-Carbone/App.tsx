@@ -4,7 +4,7 @@ import { MainNavigator } from "./navigation/MainNavigator";
 import React from "react";
 
 const client = new ApolloClient({
-  uri: "http://192.168.1.64:5002/graphql",
+  uri: "http://172.20.10.4:5002/graphql",
   cache: new InMemoryCache(),
 });
 

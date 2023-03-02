@@ -11,7 +11,7 @@ const datas = [
   { name: "Numérique", value: 30, color: colors.brown },
 ];
 
-export default function HomeScreen({ navigation }: any) {
+export default function HomeBis({ navigation }: any) {
   return (
     <>
       <SafeAreaView>
