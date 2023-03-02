@@ -11,7 +11,7 @@ import ICarbon from "../../interface/ICarbon";
 import * as Font from "expo-font";
 import { useFonts } from "expo-font";
 import SplashScreen from "../Splash/SplashScreen";
-import { colors } from "../../assets/themes.json";
+import { colors } from "../../assets/constants";
 import { color } from "@rneui/base";
 import { SafeAreaView } from "react-native-safe-area-context";
 

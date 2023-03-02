@@ -5,11 +5,10 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
 } from "react-native";
 import { Icon, ListItem } from "@rneui/themed";
-import { colors } from "../../assets/themes.json";
+import { COLORS } from "../../assets/constants";
 
 type ItemData = {
   id: string;
@@ -35,38 +34,18 @@ const DATA: ItemData[] = [
   },
 ];
 
-type ItemProps = {
-  item: ItemData;
-  onPress: () => void;
-  backgroundColor: string;
-  textColor: string;
-};
-
-const Item = ({ item, onPress, backgroundColor, textColor }: ItemProps) => (
-  <TouchableOpacity
-    onPress={onPress}
-    style={[styles.item, { backgroundColor }]}
-  >
-    <Text style={[styles.title, { color: textColor }]}>{item.title}</Text>
-  </TouchableOpacity>
-);
-
 const HomeBis = () => {
-  const [selectedId, setSelectedId] = useState<string>();
   const [expanded, setExpanded] = useState(false);
+  const [count, setCount] = useState(0);
 
   const renderItem = ({ item }: { item: ItemData }) => {
-    const backgroundColor =
-      item.id === selectedId ? colors.primary : colors.secondary;
-    const color = item.id === selectedId ? "white" : "black";
-
     return (
       <ListItem.Accordion
         content={
           <>
             <Icon name="star" size={30} />
-            <ListItem.Content>
-              <Text>{item.title}</Text>
+            <ListItem.Content style={styles.item}>
+              <Text style={styles.title}>{item.title}</Text>
             </ListItem.Content>
           </>
         }
@@ -74,11 +53,14 @@ const HomeBis = () => {
         onPress={() => {
           setExpanded(!expanded);
         }}
+        bottomDivider
       >
         <ListItem.Content
           style={{ flexDirection: "row", justifyContent: "space-between" }}
         >
-          <TextInput placeholder="Portion" />
+          <Text onPress={() => setCount(count - 1)}>-</Text>
+          <Text style={{ fontSize: 20 }}>{count}</Text>
+          <Text onPress={() => setCount(count + 1)}>+</Text>
           <TouchableOpacity
             onPress={() => alert("Portion ajoutée avec succès !")}
           >
@@ -95,7 +77,6 @@ const HomeBis = () => {
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        extraData={selectedId}
       />
     </SafeAreaView>
   );
@@ -105,6 +86,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: COLORS.LIGHT_BLUE,
   },
   item: {
     padding: 20,
@@ -112,7 +94,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    fontSize: 32,
+    fontSize: 22,
   },
 });
 

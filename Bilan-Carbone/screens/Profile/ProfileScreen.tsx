@@ -7,7 +7,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import React from "react";
-import { colors } from "../../assets/themes.json";
+import { colors } from "../../assets/constants";
 
 export default function ProfileScreen() {
   return (

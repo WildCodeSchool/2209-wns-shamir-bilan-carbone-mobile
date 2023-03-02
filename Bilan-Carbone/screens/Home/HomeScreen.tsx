@@ -3,7 +3,7 @@ import { Button } from "@rneui/themed";
 import React from "react";
 import { DonutChart } from "react-native-circular-chart";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { colors } from "../../assets/themes.json";
+import { colors } from "../../assets/constants";
 
 const datas = [
   { name: "Voiture", value: 10, color: colors.primary },
