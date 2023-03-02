@@ -8,7 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import { Avatar, Icon, ListItem } from "@rneui/themed";
+import { Icon, ListItem } from "@rneui/themed";
 import { colors } from "../../assets/themes.json";
 
 type ItemData = {
@@ -64,7 +64,7 @@ const HomeBis = () => {
       <ListItem.Accordion
         content={
           <>
-            <Icon name="place" size={30} />
+            <Icon name="star" size={30} />
             <ListItem.Content>
               <Text>{item.title}</Text>
             </ListItem.Content>
@@ -78,8 +78,10 @@ const HomeBis = () => {
         <ListItem.Content
           style={{ flexDirection: "row", justifyContent: "space-between" }}
         >
-          <TextInput placeholder="Quantité" />
-          <TouchableOpacity onPress={() => console.log("test")}>
+          <TextInput placeholder="Portion" />
+          <TouchableOpacity
+            onPress={() => alert("Portion ajoutée avec succès !")}
+          >
             <Text>Valider</Text>
           </TouchableOpacity>
         </ListItem.Content>
