@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeBis from "../screens/Home/HomeBis";
 import InfosScreen from "../screens/Infos/InfosScreen";
+import { RecipesList } from "../screens/Recipe/RecipesList";
 import ProfileScreen from "../screens/Profile/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
@@ -28,7 +29,7 @@ export const TabNavigator = () => {
         tabBarInactiveTintColor: "#8a817c",
       })}
     >
-      <Tab.Screen name="Recettes" component={HomeBis} />
+      <Tab.Screen name="Recettes" component={RecipesList} />
       <Tab.Screen name="Infos" component={InfosScreen} />
       <Tab.Screen name="Profil" component={ProfileScreen} />
     </Tab.Navigator>
