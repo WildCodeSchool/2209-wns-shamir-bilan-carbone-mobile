@@ -7,4 +7,10 @@ export const COLORS = {
     WHITE: "#ffffff",
     LIGHT_BROWN: "#8a817c"
 }
+
+export const FONTS = {
+    MAIN: "Roboto-Condensed",
+    SECONDARY: "Roboto",
+    TERTIARY: "Roboto-Light"
+}
   
