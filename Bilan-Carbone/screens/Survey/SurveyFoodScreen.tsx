@@ -11,7 +11,7 @@ import ICarbon from "../../interface/ICarbon";
 import * as Font from "expo-font";
 import { useFonts } from "expo-font";
 import SplashScreen from "../Splash/SplashScreen";
-import { colors } from "../../assets/constants";
+import { COLORS } from "../../assets/constants";
 import { color } from "@rneui/base";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -97,7 +97,7 @@ export default function SurveyFoodScreen({ navigation }: any) {
           <Button
             title="Suivant"
             buttonStyle={{
-              backgroundColor: colors.primary,
+              backgroundColor: COLORS.LIGHT_BLUE,
               borderWidth: 0,
               borderColor: "white",
               borderRadius: 50,
