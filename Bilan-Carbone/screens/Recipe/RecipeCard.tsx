@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, Image, View, StyleSheet, TouchableOpacity} from 'react-native';
-export function Recipe({name, co2, image, onPress}) {
+
+
+export function RecipeCard({name, co2, image, onPress}: any) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image

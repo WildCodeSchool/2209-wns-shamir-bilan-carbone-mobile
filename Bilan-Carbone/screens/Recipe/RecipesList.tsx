@@ -1,11 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { Recipe } from './Recipe.js';
-import { getRecipes } from '../../utils/RecipesService.js';
-export function RecipesList ({navigation}) {
-function renderRecipe({item: recipe}) {
+import { RecipeCard } from './RecipeCard';
+// import { getRecipes } from '../../utils/RecipesService.js';
+import SearchBis from '../../components/SearchBis';
+import { GETALL_RECIPES } from '../../gql/queries';
+import { useQuery } from "@apollo/client";
+
+export function RecipesList ({navigation}: any) {
+function renderRecipe({item: recipe}: {item: Recipe}) {
     return (
-      <Recipe {...recipe} 
+      <RecipeCard {...recipe} 
       onPress={() => {
         navigation.navigate('RecipeDetails', {
           recipeId: recipe.id,
@@ -16,12 +20,22 @@ function renderRecipe({item: recipe}) {
   }
 
   const [recipes, setRecipes] = useState([]);
+  const { data } = useQuery(GETALL_RECIPES);
+
+  const recipeInfos = data.getAllRecipes.map((recipe: Recipe) => ({
+    id: recipe.id,
+    name: recipe.name,
+    description: recipe.description,
+    calcul: recipe.calcul,
+  }));
 
   useEffect(() => {
-    setRecipes(getRecipes());
-  });
+    setRecipes(recipeInfos);
+  }, []);
 
   return (
+    <>
+    <SearchBis />
     <FlatList
       style={styles.recipesList}
       contentContainerStyle={styles.recipesListContainer}
@@ -29,6 +43,7 @@ function renderRecipe({item: recipe}) {
       data={recipes}
       renderItem={renderRecipe}
     />
+    </>
   );
 }
 const styles = StyleSheet.create({

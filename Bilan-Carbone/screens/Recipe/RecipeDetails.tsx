@@ -8,37 +8,51 @@ import {
   Button, 
   StyleSheet
   } from 'react-native';
-import { getRecipe } from '../../utils/RecipesService.js';
-import { CartContext } from '../../context/MealsContext';
-export function RecipeDetails({route}) {
+import { CartContext } from '../../context/MealsContext.js';
+import { useQuery } from '@apollo/client';
+import { GETALL_RECIPES } from '../../gql/queries';
+
+export function RecipeDetails({route}: any) {
   const { recipeId } = route.params;
   const [recipe, setRecipe] = useState({});
+  const { data, loading, error } = useQuery(GETALL_RECIPES);
 
   const { addItemToCart } = useContext(CartContext);
 
+  const recipeInfos = data.getAllRecipes.map((recipe: Recipe) => ({
+    id: recipe.id,
+    name: recipe.name,
+    description: recipe.description,
+    calcul: recipe.calcul,
+  }));
+
   useEffect(() => {
-    setRecipe(getRecipe(recipeId));
-  });
+    setRecipe(recipeInfos);
+  }, []);
 
   function onAddToCart() {
-    addItemToCart(recipe.id);
+    addItemToCart(recipeInfos.id);
   }
 
   return (
     <SafeAreaView>
       <ScrollView>
-        <Image
+        {/* <Image
           style={styles.image}
           source={recipe.image}
-        />
+        /> */}
         <View style={styles.infoContainer}>
-          <Text style={styles.name}>{recipe.name}</Text>
-          <Text style={styles.co2}>{recipe.co2} co2</Text>
-          <Text style={styles.description}>{recipe.description}</Text>
+          <Text style={styles.name}>{recipeInfos.name}</Text>
+          <Text style={styles.description}>{recipeInfos.description}</Text>
+          <Text style={styles.co2}>{recipeInfos.calcul} co2</Text>
+          {/* {recipeInfos.map((item) => 
+          <Text style={styles.description}>{item.ingredients.name}</Text>
+          )} */}
+          {/* <Text style={styles.description}>{recipe.ingredients.amount}</Text> */}
             <Button
             onPress={onAddToCart}
             title="Ajouter"
-            / >
+            />
         </View>
       </ScrollView>
     </SafeAreaView>
