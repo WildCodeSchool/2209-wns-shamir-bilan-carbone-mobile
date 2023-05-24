@@ -3,12 +3,12 @@ import { Button } from "@rneui/themed";
 import React from "react";
 import { DonutChart } from "react-native-circular-chart";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { colors } from "../../assets/constants";
+import { COLORS } from "../../assets/constants";
 
 const datas = [
-  { name: "Voiture", value: 10, color: colors.primary },
-  { name: "Repas", value: 20, color: colors.secondary },
-  { name: "Numérique", value: 30, color: colors.brown },
+  { name: "Voiture", value: 10, color: COLORS.LIGHT_BLUE },
+  { name: "Repas", value: 20, color: COLORS.LIGHT_GREEN },
+  { name: "Numérique", value: 30, color: COLORS.LIGHT_BROWN },
 ];
 
 export default function HomeBis({ navigation }: any) {
