@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import { getRecipe } from '../utils/RecipesService.js';
+import { getRecipe } from '../utils/RecipesService.ts';
 export const CartContext = createContext();
 export function CartProvider(props) {
   const [items, setItems] = useState([]);
