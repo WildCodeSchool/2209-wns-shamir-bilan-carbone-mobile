@@ -3,9 +3,6 @@ import LoginScreen from "../screens/Auth/LoginScreen";
 import RegisterScreen from "../screens/Auth/RegisterScreen";
 import LandingScreen from "../screens/Landing/LandingScreen";
 import OnboardingScreen from "../screens/Onboarding/OnboardingScreen";
-import SurveyScreen from "../screens/Survey/SurveyScreen";
-import SurveyFoodScreen from "../screens/Survey/SurveyFoodScreen";
-import SurveyFoodSearchScreen from "../screens/Survey/SurveyFoodSearchScreen";
 import { TabNavigator } from "./TabNavigator";
 import { CartProvider } from "../context/MealsContext";
 import { RecipesList } from "../screens/Recipe/RecipesList";
@@ -52,12 +49,6 @@ export const StackNavigator = () => {
       <Stack.Screen name="Landing" component={LandingScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Survey" component={SurveyScreen} />
-      <Stack.Screen name="SurveyFood" component={SurveyFoodScreen} />
-      <Stack.Screen
-        name="SurveyFoodSearch"
-        component={SurveyFoodSearchScreen}
-      />
     </Stack.Navigator>
     </CartProvider>
   );
