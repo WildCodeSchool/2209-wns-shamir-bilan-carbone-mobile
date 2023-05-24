@@ -16,7 +16,7 @@ export function CartIcon({navigation}) {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 8,
-    backgroundColor: 'orange',
+    backgroundColor: '#32C481',
     height: 40,
     padding: 8,
     borderRadius: 32 / 2,
