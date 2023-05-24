@@ -7,7 +7,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import React from "react";
-import { colors } from "../../assets/constants";
+import { COLORS } from "../../assets/constants";
 
 export default function ProfileScreen() {
   return (
@@ -19,8 +19,8 @@ export default function ProfileScreen() {
         <View style={styles.switchContainer}>
           <Text style={styles.switchText}>Notifications</Text>
           <Switch
-            trackColor={{ false: colors.brown, true: colors.brown }}
-            thumbColor={true ? colors.secondary : colors.brown}
+            trackColor={{ false: COLORS.LIGHT_BROWN, true: COLORS.LIGHT_BROWN }}
+            thumbColor={true ? COLORS.VERY_LIGHT_GREEN : COLORS.LIGHT_BROWN}
             ios_backgroundColor="#3e3e3e"
             onValueChange={() => {}}
             value={true}
